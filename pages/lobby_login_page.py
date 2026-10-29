@@ -11,8 +11,8 @@ class LobbyLoginPage(BasePage):
     def open(self):
         self.driver.get(self.URL)
 
-    def join(self, name):
-        self.enter_text(self.USERNAME_FIELD, name)
+    def login(self, username):
+        self.enter_text(self.USERNAME_FIELD, username)
         self.click(self.LOGIN_BUTTON)
 
     def get_error_message(self):

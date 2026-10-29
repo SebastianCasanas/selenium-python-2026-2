@@ -10,14 +10,14 @@ def step_given_user_on_login_page(context):
 
 
 @when('El usuario ingresa con el nombre "{username}"')
-def step_when_user_enters_name(context, username):
-    context.lobby_login_page.join(username)
+def step_when_user_logs_in(context, username):
+    context.lobby_login_page.login(username)
+    context.lobby_dashboard_page = LobbyDashboardPage(context.driver)
 
 
 @then('El nombre del usuario "{username}" aparece en el dashboard')
 def step_then_username_in_dashboard(context, username):
-    dashboard = LobbyDashboardPage(context.driver)
-    assert dashboard.find_username(username)
+    assert context.lobby_dashboard_page.find_username(username)
 
 
 @then('Se muestra un mensaje de error')
