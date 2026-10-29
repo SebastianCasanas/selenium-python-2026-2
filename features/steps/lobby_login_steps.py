@@ -24,7 +24,7 @@ def step_join_with_name(context, name):
 @then('the user should see their name in the lobby')
 def step_name_in_lobby(context):
     dashboard = LobbyDashboardPage(context.driver)
-    assert dashboard.is_user_in_lobby(context.username)
+    assert dashboard.find_username(context.username)
 
 
 @then('a name error message should be displayed')

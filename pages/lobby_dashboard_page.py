@@ -5,6 +5,9 @@ from .base_page import BasePage
 class LobbyDashboardPage(BasePage):
     USERNAME = (By.CLASS_NAME, "participant-name")
 
-    def is_user_in_lobby(self, name):
-        locator = (By.XPATH, f"//span[@class='participant-name' and text()='{name}']")
-        return self.find_element(locator).is_displayed()
+    def find_username(self, username):
+        usernames = self.find_elements(self.USERNAME)
+        for user in usernames:
+            if user.text == username:
+                return True
+        return False
