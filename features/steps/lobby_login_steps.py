@@ -16,8 +16,8 @@ def step_when_user_logs_in(context, username):
 
 
 @then('El nombre del usuario "{username}" aparece en el dashboard')
-def step_then_username_in_dashboard(context, username):
-    assert context.lobby_dashboard_page.find_username(username)
+def step_then_user_login(context, username):
+    assert context.lobby_dashboard_page.find_username(username) is True
 
 
 @then('Se muestra un mensaje de error')
